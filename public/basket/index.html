@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Basket</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <script src="/js/basket.js"></script>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">Basket</a></li>
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            
+        </div>
+    </header>
+    <main>
+        <form id="order-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="deliveryCompany">Delivery Company:</label>
+            <select id="deliveryCompany" name="deliveryCompany" required>
+                <option value="Speedy">Speedy</option>
+                <option value="Ekont">Ekont</option>
+            </select>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="3" required></textarea>
+
+            <button type="button" onclick="submitOrder()">Submit Order</button>
+        </form>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script> 
+
+    <script>
+        function submitOrder() {
+            
+            const formData = {
+                "Name": document.getElementById('name').value,
+                "Surname": document.getElementById('surname').value,
+                "Phone": document.getElementById('phone').value,
+                "Delivery Company": document.getElementById('deliveryCompany').value,
+                "Address": document.getElementById('address').value,
+                "Basket": JSON.stringify(localStorage.getItem('basket')) 
+            };
+
+            
+            const apiUrl = 'https://api.airtable.com/v0/appD3q0GKmvAEJFcl/Order%20Data'; 
+
+            
+            const headers = {
+                'Authorization': `Bearer patP73ur2dgSvLc9h.a8c68c4e0adf613ee50c0ed731852f34d08ebebfb33fbe3cf0fcb337fae02369`, 
+                'Content-Type': 'application/json'
+            };
+
+            
+            axios.post(apiUrl, {
+                fields: formData
+            }, {
+                headers: headers
+            })
+            .then(response => {
+                console.log('Order submitted successfully:', response.data);
+                alert('Order submitted successfully!');
+            })
+            .catch(error => {
+                console.error('Error submitting order:', error);
+                alert('There was an error submitting the order.');
+            });
+        }
+    </script>
+
+    <script src="/js/basket.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            updateBasketDisplay();
+        });
+    </script>   
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">View Basket</a></li> 
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            
+        </div>
+    </header>
+
+    <main>
+        <div class="product-page">
+            
+            <div class="product-image">
+                <img src="/images/item-2.jpg" alt="Ninjago minifig">
+            </div>
+
+            
+            <div class="product-details">
+                <h2>Ninjago minifig</h2>
+                <p>A detailed description for item 2.</p>
+                <p><strong>Price: $29.99</strong></p>
+                <button onclick="addToBasket('Ninjago minifig', '$29.99')">Add to Basket</button> 
+            </div>
+        </div>
+    </main>
+    <script src="/js/basket.js"></script>
+</body>
+</html>

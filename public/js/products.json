@@ -1,0 +1,23 @@
+[
+    {
+        "title": "Catalog Item 1",
+        "description": "This is a description for catalog item 1.",
+        "price": "$10.00",
+        "image": "/images/item1.jpg",
+        "permalink": "/catalog-item-1/"
+    },
+    {
+        "title": "Catalog Item 2",
+        "description": "This is a description for catalog item 2.",
+        "price": "$15.00",
+        "image": "/images/item2.jpg",
+        "permalink": "/catalog-item-2/"
+    },
+    {
+        "title": "Catalog Item 3",
+        "description": "This is a description for catalog item 3.",
+        "price": "$20.00",
+        "image": "/images/item3.jpg",
+        "permalink": "/catalog-item-3/"
+    }
+]

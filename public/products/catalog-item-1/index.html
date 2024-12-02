@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">View Basket</a></li> 
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            
+        </div>
+    </header>
+
+    <main>
+        <div class="product-page">
+            
+            <div class="product-image">
+                <img src="/images/item-1.jpg" alt="Star Wars frame for Lego minifigures">
+            </div>
+
+            
+            <div class="product-details">
+                <h2>Star Wars frame for Lego minifigures</h2>
+                <p>The best way to display your favourite minifigures from the galaxy, far, far away.</p>
+                <p><strong>Price: 35 lv</strong></p>
+                <button onclick="addToBasket('Star Wars frame for Lego minifigures', '35 lv')">Add to Basket</button> 
+            </div>
+        </div>
+    </main>
+    <script src="/js/basket.js"></script>
+</body>
+</html>

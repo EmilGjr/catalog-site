@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.139.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">View Basket</a></li> 
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            
+        </div>
+    </header>
+
+    <main>
+        
+        
+        <div class="filter-container">
+            
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter" onchange="filterProducts()">
+                <option value="all">All Categories</option>
+                
+                
+                    <option value="frames">Frames</option>
+                
+                    <option value="minifigs">Minifigs</option>
+                
+                    <option value="sets">Sets</option>
+                
+                    <option value="parts">Parts</option>
+                
+            </select>
+
+            
+            <label for="theme-filter">Filter by Theme:</label>
+            <select id="theme-filter" onchange="filterProducts()">
+                <option value="all">All Themes</option>
+                
+                
+                    <option value="star wars">Star Wars</option>
+                
+                    <option value="harry poter">Harry Poter</option>
+                
+                    <option value="city">City</option>
+                
+                    <option value="ninjago">Ninjago</option>
+                
+                    <option value="dc">DC</option>
+                
+                    <option value="marvell">Marvell</option>
+                
+                    <option value="creator">Creator</option>
+                
+                    <option value="sponge bob">Sponge Bob</option>
+                
+                    <option value="disney">Disney</option>
+                
+                    <option value="pirates of carribiens">Pirates of Carribiens</option>
+                
+                    <option value="knights">Knights</option>
+                
+                    <option value="pirates">Pirates</option>
+                
+            </select>
+        </div>
+
+        
+        <div class="product-container">
+            <ul id="product-list" class="product-list">
+                
+                    <li class="product-item" 
+                        data-category="sets" 
+                        data-theme="city">
+                        <h3><a href="http://localhost:1313/products/catalog-item-3/">City set</a></h3>
+                        <p>A detailed description for item 3.</p>
+                        <p><strong>$39.99</strong></p>
+                        <img src="/images/item-3.jpg" 
+                             alt="City set" 
+                             style="max-width: 200px;">
+                    </li>
+                
+                    <li class="product-item" 
+                        data-category="minifigs" 
+                        data-theme="ninjago">
+                        <h3><a href="http://localhost:1313/products/catalog-item-2/">Ninjago minifig</a></h3>
+                        <p>A detailed description for item 2.</p>
+                        <p><strong>$29.99</strong></p>
+                        <img src="/images/item-2.jpg" 
+                             alt="Ninjago minifig" 
+                             style="max-width: 200px;">
+                    </li>
+                
+                    <li class="product-item" 
+                        data-category="parts" 
+                        data-theme="none">
+                        <h3><a href="http://localhost:1313/products/catalog-item-4/">Parts</a></h3>
+                        <p>A detailed description for item 4.</p>
+                        <p><strong>$29.99</strong></p>
+                        <img src="/images/item-4.jpg" 
+                             alt="Parts" 
+                             style="max-width: 200px;">
+                    </li>
+                
+                    <li class="product-item" 
+                        data-category="frames" 
+                        data-theme="star wars">
+                        <h3><a href="http://localhost:1313/products/catalog-item-1/">Star Wars frame for Lego minifigures</a></h3>
+                        <p>The best way to display your favourite minifigures from the galaxy, far, far away.</p>
+                        <p><strong>35 lv</strong></p>
+                        <img src="/images/item-1.jpg" 
+                             alt="Star Wars frame for Lego minifigures" 
+                             style="max-width: 200px;">
+                    </li>
+                
+                    <li class="product-item" 
+                        data-category="sets" 
+                        data-theme="star wars">
+                        <h3><a href="http://localhost:1313/products/catalog-item-5/">Star Wars set 75376</a></h3>
+                        <p>The best way to display your favourite minifigures from the galaxy, far, far away.</p>
+                        <p><strong>35 lv</strong></p>
+                        <img src="/images/item-5.jpg" 
+                             alt="Star Wars set 75376" 
+                             style="max-width: 200px;">
+                    </li>
+                
+            </ul>            
+        </div>
+    </main>
+
+    <script>
+        function filterProducts() {
+            
+            var categoryFilter = document.getElementById("category-filter").value.toLowerCase();
+            var themeFilter = document.getElementById("theme-filter").value.toLowerCase();
+            
+            
+            var products = document.querySelectorAll(".product-item");
+
+            products.forEach(function(product) {
+                var category = product.getAttribute("data-category").toLowerCase();
+                var theme = product.getAttribute("data-theme").toLowerCase();
+
+                
+                if ((categoryFilter === "all" || category === categoryFilter) &&
+                    (themeFilter === "all" || theme === themeFilter)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
+    <script src="{{ "/js/basket.js" | relURL }}"></script>
+
+</body>
+</html>

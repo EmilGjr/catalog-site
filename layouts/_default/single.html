@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">View Basket</a></li> <!-- Basket Link -->
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            <!-- The basket items will appear here -->
+        </div>
+    </header>
+
+    <main>
+        <div class="product-page">
+            <!-- Image Section -->
+            <div class="product-image">
+                <img src="{{ .Params.image | default "/images/default.jpg" }}" alt="{{ .Title }}">
+            </div>
+
+            <!-- Text Section -->
+            <div class="product-details">
+                <h2>{{ .Title }}</h2>
+                <p>{{ .Params.description }}</p>
+                <p><strong>Price: {{ .Params.price }}</strong></p>
+                <button onclick="addToBasket('{{ .Title }}', '{{ .Params.price }}')">Add to Basket</button> <!--New-->
+            </div>
+        </div>
+    </main>
+    <script src="{{ "/js/basket.js" | relURL }}"></script>
+</body>
+</html>

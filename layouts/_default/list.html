@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <h1>Bricksify</h1>
+    </header>
+
+    <main>
+        <ul>
+        {{ range .Pages }}
+            <li>
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <p>{{ .Params.description }}</p>
+                <p><strong>{{ .Params.price }}</strong></p>
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 200px;">
+            </li>
+        {{ end }}
+        </ul>
+    </main>
+</body>
+</html>
+laouts\_dafault\taxonomy.html:
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }} - Taxonomy</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <h1>Taxonomy: {{ .Title }}</h1>
+    </header>
+
+    <main>
+        <ul>
+        {{ range .Pages }}
+            <li>
+                <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                <p>{{ .Params.description }}</p>
+                <p><strong>{{ .Params.price }}</strong></p>
+                <img src="{{ .Params.image }}" alt="{{ .Title }}" style="max-width: 200px;">
+            </li>
+        {{ end }}
+        </ul>
+    </main>
+</body>
+</html>

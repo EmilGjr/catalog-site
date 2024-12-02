@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bricksify</title>
+    <link rel="stylesheet" href="{{ "/css/style.css" | relURL }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Products</a></li>
+                <li><a href="/about/">About</a></li>
+                <li><a href="/contact/">Contact</a></li>
+                <li><a href="/basket/">View Basket</a></li> <!-- Basket Link -->
+            </ul>
+        </nav>
+        <h1>Bricksify</h1>
+        <div id="basket-display">
+            <!-- The basket items will appear here -->
+        </div>
+    </header>
+
+    <main>
+        
+        <!-- Filter Dropdowns -->
+        <div class="filter-container">
+            <!-- Category Filter -->
+            <label for="category-filter">Filter by Category:</label>
+            <select id="category-filter" onchange="filterProducts()">
+                <option value="all">All Categories</option>
+                {{ $categories := .Site.Data.categories }}
+                {{ range $categories }}
+                    <option value="{{ . | lower }}">{{ . }}</option>
+                {{ end }}
+            </select>
+
+            <!-- Theme Filter -->
+            <label for="theme-filter">Filter by Theme:</label>
+            <select id="theme-filter" onchange="filterProducts()">
+                <option value="all">All Themes</option>
+                {{ $themes := .Site.Data.themes }}
+                {{ range $themes }}
+                    <option value="{{ . | lower }}">{{ . }}</option>
+                {{ end }}
+            </select>
+        </div>
+
+        <!-- Product List -->
+        <div class="product-container">
+            <ul id="product-list" class="product-list">
+                {{ range where .Site.RegularPages "Type" "products" }}
+                    <li class="product-item" 
+                        data-category="{{ .Params.category | lower }}" 
+                        data-theme="{{ .Params.theme | lower }}">
+                        <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+                        <p>{{ .Params.description }}</p>
+                        <p><strong>{{ .Params.price }}</strong></p>
+                        <img src="{{ .Params.image | default "/images/default.jpg" }}" 
+                             alt="{{ .Title }}" 
+                             style="max-width: 200px;">
+                    </li>
+                {{ end }}
+            </ul>            
+        </div>
+    </main>
+
+    <script>
+        function filterProducts() {
+            // Get filter values
+            var categoryFilter = document.getElementById("category-filter").value.toLowerCase();
+            var themeFilter = document.getElementById("theme-filter").value.toLowerCase();
+            
+            // Select all products
+            var products = document.querySelectorAll(".product-item");
+
+            products.forEach(function(product) {
+                var category = product.getAttribute("data-category").toLowerCase();
+                var theme = product.getAttribute("data-theme").toLowerCase();
+
+                // Show or hide based on filters
+                if ((categoryFilter === "all" || category === categoryFilter) &&
+                    (themeFilter === "all" || theme === themeFilter)) {
+                    product.style.display = "block";
+                } else {
+                    product.style.display = "none";
+                }
+            });
+        }
+    </script>
+    <script src="{{ "/js/basket.js" | relURL }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+---
+title: "Products"
+outputs: ["html"]
+---

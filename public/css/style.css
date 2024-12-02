@@ -1,0 +1,235 @@
+/* Default link styling */
+a {
+    text-decoration: none !important;
+    color: #000000 !important; /* Your desired default color */
+}
+
+/* Link on hover */
+a:hover {
+    color: #000000 !important; /* Hover color */
+}
+
+/* Link after being visited */
+a:visited {
+    text-decoration: none !important;
+    color: #000000 !important; /* Same as default or a different color */
+}
+
+/* Link when active (clicked) */
+a:active {
+    text-decoration: none !important;
+    color: #ff0000 !important; /* Active color */
+}
+/*--------------------------------------------------------------*/
+
+
+
+
+
+/*Home, About, Contact*/
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #1e839c;
+    color: #fff;
+    padding: 10px 20px;
+    display: center;
+}
+
+/*header h1 {
+margin: 0;
+}*/
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+/*--------------------------------------------------------------*/
+
+
+/* Container for the product list */
+.product-container {
+    display: flex;
+    justify-content: center; /* Center the content */
+    align-items: flex-start;
+    flex-wrap: wrap; /* Allow items to wrap onto new rows */
+    gap: 20px; /* Add some space between the products */
+}
+
+/* Style the product list */
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0;
+    margin: 0;
+    gap: 20px; /* Space between products */
+    width: 100%;
+    justify-content: center; /* Ensure products are centered */
+}
+
+/* Each product item */
+.product-item {
+    background: #f4f4f4; /* Light background for better visibility */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33.33% - 20px); /* Adjust to show 3 items per row */
+    box-sizing: border-box; /* Ensure padding is included in width */
+    text-align: center;
+    transition: transform 0.3s ease; /* Add transition for smoother hover effect */
+}
+
+/* When hovering over a product item */
+.product-item:hover {
+    transform: scale(1.05); /* Slightly enlarge the item when hovered */
+}
+
+/* Image inside the product item */
+.product-item img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Mobile responsiveness - Make the layout adjust on smaller screens */
+@media (max-width: 768px) {
+    .product-item {
+        width: calc(50% - 20px); /* Show 2 items per row on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-item {
+        width: 100%; /* Show 1 item per row on very small screens */
+    }
+}
+
+
+
+
+
+/*----------------------------------*/
+/* Styling for the product page layout */
+.product-page {
+    display: inline-flex;
+    align-items: center; /* Align items vertically */
+    justify-content: space-around; /* Space between the text and image */
+    gap: 20px; /* Space between the two sections */
+    margin: 200px;
+}
+
+/* Styling for the product image */
+.product-image img {
+    max-width: 300px; /* Set maximum width for images */
+    height: auto; /* Maintain aspect ratio */
+    border: 1px solid #ddd; /* Optional: Add a border */
+    border-radius: 8px; /* Optional: Add rounded corners */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add shadow */
+}
+
+/* Styling for the product text */
+.product-details {
+    font-family: 'Trebuchet MS', sans-serif;
+    max-width: 700px; /* Set maximum width for text content */
+    text-align: left; /* Align text to the left */
+}
+
+.product-details h2 {
+    font-size: 2.8rem; /* Adjust title size */
+    margin-bottom: 10px;
+}
+
+.product-details p {
+    font-size: 1.2rem; /* Adjust paragraph text size */
+    margin-bottom: 40px;
+}
+
+.product-details strong {
+    font-size: 1.2rem; /* Highlight price */
+    color: #073550; /* Optional: Add color for emphasis */
+}
+/*--------------------------------------------------------------*/
+
+
+
+
+
+/* Links in the product page */
+.product-page a {
+    text-decoration: none !important; /* Remove underline */
+    color: #e2e2e2 !important; /* Desired link color */
+}
+
+/* Hover effect for product page links */
+.product-page a:hover {
+    color: #ff4500 !important; /* Hover color */
+}
+
+/* Visited link styling for product page */
+.product-page a:visited {
+    color: #551a8b !important; /* Visited link color */
+}
+
+/* Active link styling for product page */
+.product-page a:active {
+    color: #228b22 !important; /* Active link color */
+}
+/*--------------------------------------------------------------*/
+
+
+
+/*Filter layout*/
+.filter-container {
+    margin-bottom: 20px;
+}
+
+#category-filter {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+
+#theme-filter {
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #000000;
+}
+/*--------------------------------------------------------------*/
+
+/*----Basket----*/
+#basket-link {
+    font-weight: bold;
+    color: #ff6600;
+}
+
+#basket-link:hover {
+    color: #cc3300;
+}
